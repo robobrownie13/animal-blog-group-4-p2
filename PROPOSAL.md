@@ -14,6 +14,8 @@ Animal-Blog-Group-4-Project-2
 
 3. Jasmine Maduafokwa
 
+4. Felipe Lyra
+
 ## Installation Instructions
 
 - Clone our repo to your computer
