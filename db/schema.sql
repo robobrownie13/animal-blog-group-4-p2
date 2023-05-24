@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS logs_db;
+CREATE DATABASE logs_db;
