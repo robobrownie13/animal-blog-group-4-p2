@@ -44,7 +44,7 @@ The user will have the chance to search any animal that comes into their mind an
 - Blog that users can log into and create and view posts
 - Users can comment on other posts
 - Specialize content to animals (possibly endangered)
-- Search function
+- Search function so users are able to search animals to see whether the species is Threatened or Endangered.
 
 ## Stretch Goals
 
