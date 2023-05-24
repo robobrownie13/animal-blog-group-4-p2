@@ -4,7 +4,7 @@ Animal-Blog-Group-4-Project-2
 
 ## Project Summary
 
-The user will have the chance to search any animal that comes into their mind and see if it s listed as endangered or not. The user will also have the chance to interact with oher users in the application by creating an account so that they can post and comment on other user's post.
+The user will have the chance to search any animal that comes into their mind to see if it is listed as endangered or not. The user will also have the chance to interact with oher users in the application by creating an account so that they can post and comment on other user's post.
 
 ## Developers
 
