@@ -14,6 +14,7 @@ Category.init(
       autoIncrement: true,
     },
   },
+  
   {
     sequelize,
     timestamps: false,
