@@ -35,6 +35,14 @@ User.init(
         len: [8],
       },
     },
+    user_image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    user_bio: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     hooks: {
