@@ -71,3 +71,22 @@ h3 {
 p {
     font-weight: 200;
 }
+
+@media screen and (max-width: 767px) {
+    button {
+        padding: 10px 40px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    button {
+        padding: 10px 40px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px)  {
+    /* button {
+        padding: 10px 40px;
+    } */
+}
