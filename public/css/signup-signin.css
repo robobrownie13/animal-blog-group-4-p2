@@ -1,0 +1,89 @@
+.login, .signup {
+    width: 100vw;
+    height: calc(100vh - 78px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--feed-background-color);
+}
+
+.login-card, .signup-card {
+    width: 35%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 8em 0;
+    border-radius: 30px;
+}
+
+.login-text h2, .signup-text h2 {
+    color: var(--background-color);
+}
+
+.login-form, .signup-form {
+    text-align: center;
+    width: 70%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group input {
+    padding: 8px 20px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+}
+
+.form-button, .login-form, .signup-form {
+    margin-top: 3em;
+}
+
+.form-button button {
+    background-color: var(--highlight-color);
+    border-radius: 10px;
+    text-transform: uppercase;
+    padding: 15px 70px;
+    color: var(--background-color);
+}
+
+#signup-button {
+    padding: 15px 50px;
+}
+
+.login-redirect, .signup-redirect {
+    color: var(--background-color);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-redirect a, .signup-redirect a {
+    color: var(--background-color);
+    opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+    .login-card, .signup-card {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .login-card, .signup-card {
+        width: 55%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px)  {
+    .login-card, .signup-card {
+        width: 45%;
+    }
+}

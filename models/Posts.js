@@ -19,10 +19,6 @@ Posts.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    post_image: {
-      type: DataTypes.STRING,
-      allowNull: false, 
-    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
