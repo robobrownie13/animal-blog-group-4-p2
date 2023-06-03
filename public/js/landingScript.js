@@ -33,3 +33,12 @@ const handleRightClick = () => {
         activeIndex = nextIndex;
     });
 }
+
+
+const searchBar = document.querySelector("#nav-search");
+
+if (window.location.href.includes("landing.html")) {
+    searchBar.classList.add("hidden");
+} else {
+    searchBar.classList.remove("hidden");
+}

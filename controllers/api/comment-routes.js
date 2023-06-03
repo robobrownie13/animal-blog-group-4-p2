@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // this will get the comments from 'api/comment'
 router.get('/', async (req, res) => {
     try{
-        const dbCommentData = await Comment.findAll({});
+        const dbCommentData = await Comments.findAll();
         if (dbCommentData.length === 0) {
             res.status(404).json({ message: "No comment found!"});
             return;
@@ -17,9 +17,9 @@ router.get('/', async (req, res) => {
 });
 
 // this is going to get all comments from one post
-router.get('/id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        const commentData = await Comment.findAll({
+        const commentData = await Comments.findAll({
             where: { id: req.params.id },
         });
         if (commentData.length === 0) {
@@ -36,7 +36,7 @@ router.get('/id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     const body = req.body;
     try {
-        const newComment = await Comment.create({
+        const newComment = await Comments.create({
             ...body,
             userId: req.session.userId,
         });
@@ -49,7 +49,7 @@ router.post('/', withAuth, async (req, res) => {
 // this is going to delete a comment
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const dbCommentData = await Comment.destroy({
+        const dbCommentData = await Comments.destroy({
             where: {id: req.params.id},
         });
         if (!dbCommentData) {
