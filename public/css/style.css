@@ -1,5 +1,73 @@
+
+:root {
+    /* --background-color: rgb(255, 254, 200); */
+    --background-color: rgb(255, 243, 226); 
+    --border-color: rgba(67, 64, 64, 0.1);
+    --nav-button-color: #801818;
+    --highlight-color: #FBA732;
+    --blog-color: #316E6E;
+    --feed-background-color: #173838;
+    --small-container-color: #98B3B3;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body { 
+    background-color: var(--background-color);
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+button {
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+    background-color: var(--nav-button-color);
+    border-radius: 50px;
+    color: var(--background-color);
+    font-family: "Rubik", sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    font-family: "Rubik", sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+article a {
+    color: black;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+p {
+    font-weight: 200;
 }
