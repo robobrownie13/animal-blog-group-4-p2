@@ -5,19 +5,25 @@
     align-items: center;
     justify-content: center;
     background-color: var(--feed-background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .login-card, .signup-card {
     width: 35%;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, .10);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 8em 0;
     border-radius: 30px;
+}
+
+.signup-card {
+    padding: 6em 0;
 }
 
 .login-text h2, .signup-text h2 {
@@ -40,6 +46,13 @@
     outline: none;
     border: none;
     border-radius: 50px;
+}
+
+.form-group input::placeholder {
+    opacity: .7;
+}
+.form-group input::-moz-placeholder {
+    opacity: .7;
 }
 
 .form-button, .login-form, .signup-form {
@@ -68,6 +81,19 @@
 .login-redirect a, .signup-redirect a {
     color: var(--background-color);
     opacity: .7;
+}
+
+.warning-text {
+    font-size: 14px;
+    background-color: rgba(240, 248, 255, 0.6);
+    padding: 3px 10px;
+    border-radius: 15px;
+    margin-top: 5px;
+    display: none;
+}
+
+.warning-text p {
+    color: rgb(230, 26, 26);
 }
 
 @media screen and (max-width: 767px) {

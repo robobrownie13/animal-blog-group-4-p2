@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 // Initializes Sequelize with session store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const routes = require('./controller');
+// const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
@@ -47,6 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
