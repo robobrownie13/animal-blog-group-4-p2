@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
 const apiRoutes = require("./api");
-const homeLandingRoutes = require("./home-landing-routes");
-const feedRoutes = require("./home-routes");
+const homeRoutes = require("./home-routes");
+const feedRoutes = require("./feed-routes");
 const profileRoutes = require("./profile-routes");
 
-router.use("/", homeLandingRoutes);
+router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 router.use("/feed", feedRoutes);
 router.use("/profile", profileRoutes);
