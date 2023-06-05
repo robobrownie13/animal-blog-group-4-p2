@@ -41,6 +41,10 @@
     gap: 25px;
 }
 
+.signup-form .form-group {
+    gap: 20px;
+}
+
 .form-group input {
     padding: 8px 20px;
     outline: none;

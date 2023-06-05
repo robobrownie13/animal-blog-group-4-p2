@@ -1,0 +1,192 @@
+.feed-container {
+    width: 100vw;
+    padding: 6em 0;
+    color: white;
+    background-color: var(--feed-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feed-content {
+    width: 65%;
+    display: flex;
+    gap: 5em;
+}
+
+.post-container {
+    flex-basis: 65%;
+}
+
+.blogs-latest-container {
+    flex-basis: 35%;
+}
+
+/* --------BLOG POST --------- */
+
+.post-banner {
+    width: 100%;
+    background-color: var(--blog-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.banner-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b4b4b;
+}
+
+.on-your-mind {
+    background-color: aliceblue;
+    color: #173838a7;
+    width: 85%;
+    padding: 15px 25px;
+    border-radius: 40px;
+}
+
+/* --------BLOG CARD--------- */
+
+.blog-card {
+    margin-top: 5em;
+    background-color: var(--blog-color);
+    border-radius: 30px;
+}
+
+.top-blog-section, .middle-blog-section, .bottom-blog-section {
+    padding: 20px 30px;
+}
+
+.middle-blog-section {
+    margin-bottom: 30px;
+}
+
+.blog-border {
+    width: 100%;
+    height: 1px;
+    background-color: var(--background-color);
+    opacity: .3;
+}
+
+.blog-user-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creation-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(178, 178, 178);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-title {
+    margin-top: 30px;
+}
+
+.post-title h2 {
+    text-transform: capitalize;
+    line-height: 45px;
+    font-weight: 400;
+}
+
+.post-body {
+    line-height: 22px;
+}
+
+.creation-info {
+    text-align: right;
+}
+
+.username-feed-day {
+    font-size: 13px;
+}
+
+.reaction-counts p {
+    font-weight: 500;
+}
+
+.post-reactions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.post-reactions i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* ---------LATEST BLOGS SECTION---------- */
+
+.latest-blog {
+    background-color: var(--small-container-color);
+    width: 100%;
+    padding: 20px;
+    color: var(--feed-background-color);
+}
+
+.latest-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.latest-line {
+    background-color: var(--feed-background-color);
+    width: 30px;
+    height: 1px;
+    opacity: .5;
+    margin-right: 3px;
+}
+
+.latest-top h4 {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.latest-slot {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.latest-slot:hover {
+    background-color: #316e6e2e;
+}
+
+.latest-slot p {
+    font-size: 13px;
+}
+
+.latest-slot h6 {
+    text-transform: capitalize;
+}
+
+.latest-profile {
+    background-color: aliceblue;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

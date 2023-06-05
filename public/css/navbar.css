@@ -1,7 +1,7 @@
 header {
     position: sticky;
     top: 0;
-    width: 100%;
+    width: 100vw;
     padding: 15px 40px;
     background-color: white;
     box-shadow: 0 3px 6px 1px rgba(0, 0, 0, .1);
