@@ -10,3 +10,5 @@ if (window.location.href.includes("landing.html") || window.location.href.includ
     searchBar.classList.remove("hidden");
     rightNav.classList.remove("hidden");
 }
+
+console.log(window.innerWidth);
