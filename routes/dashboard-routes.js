@@ -29,7 +29,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then((dbPostData) => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
-        res.render('Feed', { posts, loggedIn: true, username: req.session.username,});
+        res.render('profile', { posts, loggedIn: true, username: req.session.username,});
     })
     .catch((err) => {
         console.log(err);
@@ -39,7 +39,7 @@ router.get('/', withAuth, (req, res) => {
 
 // this will have the ability to edit a post
 
-router.get('/edit/:id', withAuth, (req, res) => {
+router.put('/edit/:id', withAuth, (req, res) => {
     Posts.findOne({
         where: {
             id: req.params.id,
@@ -76,7 +76,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 // this will get a new post
 
-router.get('/new', withAuth, (req, res) => {
+router.post('/new', withAuth, (req, res) => {
     res.render('new-post', { username: req.session.username });
 });
 

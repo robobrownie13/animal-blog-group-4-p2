@@ -1,6 +1,6 @@
-const router = require("express").Router();
-const { User, Posts, Comments } = require("../../models");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { User, Posts, Comments } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // this is going to create a new post
 
