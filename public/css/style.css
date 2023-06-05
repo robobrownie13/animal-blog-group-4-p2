@@ -68,8 +68,30 @@ h3 {
     font-size: 26px;
 }
 
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
 p {
     font-weight: 200;
+}
+
+.page-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+    z-index: 5;
 }
 
 @media screen and (max-width: 767px) {
