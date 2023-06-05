@@ -1,1 +1,1 @@
-Animal (possibly endangered concentration) Intervactive Blog Application 
+Endangered Animal Intervactive Blog Application 
