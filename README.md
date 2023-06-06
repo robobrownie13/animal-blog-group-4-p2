@@ -4,7 +4,7 @@
 ## Endangered Animal Interactive Blog Application <br>
 
 - [Description](#description)
-- [Usage](#usage)
+- [Screenshot](#screenshot)
 - [Contributions](#contributions)
 - [License](#license)
 - [Questions](#questions)
@@ -14,8 +14,8 @@
 # Description 
 An interactive, sociable, and informative blog site regarding endangered animals where users alike can discuss many different topics by creating posts, share information from external sites, and follow accounts in order to gain knowledge, current data, and support from many users all across the globe. 
 
-# Usage
-
+# Screenshot
+![Alt text](Assets/Screenshot%202023-06-06%20at%205.56.06%20PM.png)
 # Contributions
 Oasis was made possible by the following contributors for their hard work and dedication in the completion of this application. <br>
 [Rojan Easo](https://github.com/robobrownie13)<br>
@@ -33,3 +33,4 @@ If any questions arise from this application, regarding absolutely anything, do 
 Lecture videos, class sessions, and helpful websites on SQL, Node, Express, Handlebars, & Javascript provided by Rice University Coding Bootcamp instructors in partnership with edX.<br>
 
 # Deployed-Link
+https://salty-badlands-43491.herokuapp.com/
