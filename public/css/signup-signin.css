@@ -50,12 +50,16 @@
     outline: none;
     border: none;
     border-radius: 50px;
+    color: var(--blog-color);
+    opacity: .7;
 }
 
 .form-group input::placeholder {
+    color: var(--blog-color);
     opacity: .7;
 }
 .form-group input::-moz-placeholder {
+    color: var(--blog-color);
     opacity: .7;
 }
 

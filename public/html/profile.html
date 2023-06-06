@@ -24,8 +24,8 @@
           </div>
           <div class="nav-with-button">
             <div class="right-navigation" id="right-navigation">
-                <a href="../html/feedpage.html"><i class='bx bx-sidebar bx-sm' title="Feed"></i></a>
-                <a href="../html/profile.html"><i class='bx bxs-user bx-sm' title="Profile"></i></a>
+              <a href="../html/feedpage.html"><i class='bx bx-sidebar bx-sm' title="Feed"></i></a>
+              <a href="../html/profile.html"><i class='bx bxs-user bx-sm' title="Profile"></i></a>
               <!-- <ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Feed</a></li>
@@ -40,8 +40,26 @@
       </header>
       <main>
         <section>
-            <div class="feed-container">
-                <div class="feed-content">
+            <div class="profile-container">
+                <div class="page-cover" data-location="../html/profile.html" id="edit-page-cover" style="visibility: hidden;"></div>
+                <!-- EDIT POST MODAL -->
+                <div class="edit-post" id="edit-post-pop" style="visibility: hidden;">
+                    <div class="edit-card">
+                        <div class="close-button">
+                            <a href="../html/profile.html"><i class='bx bx-x-circle bx-sm'></i></a>
+                        </div>
+                        <form class="edit-form">
+                            <div class="edit-text">
+                                <input type="text" id="edit-post" value="Hummingbirds are becoming extinct">
+                                <textarea rows="7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, in nam. Iure tenetur consequatur veritatis repudiandae at ratione incidunt ullam? Cum accusantium odio fuga rerum aliquam veniam quia facilis exercitationem. Expedita consectetur esse enim reprehenderit.</textarea>
+                            </div>
+                            <div class="edit-button">
+                                <button type="submit">update post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="profile-content">
                     <div class="post-container">
                         <!-- TOP POST BANNER -->
                         <div class="post-banner">
@@ -85,8 +103,8 @@
                                             <p class="likes-count">10 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <i class='bx bxs-edit bx-md' id="edit-post"></i>
+                                            <i class='bx bxs-trash bx-md' id="delete-post" ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -120,8 +138,8 @@
                                             <p class="likes-count">12 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <a href="../html/edit-post.html"><i class='bx bxs-edit bx-md'></i></a>
+                                            <i class='bx bxs-trash bx-md' ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -155,8 +173,8 @@
                                             <p class="likes-count">300 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <a href="../html/edit-post.html"><i class='bx bxs-edit bx-md'></i></a>
+                                            <i class='bx bxs-trash bx-md' ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -189,8 +207,8 @@
                                             <p class="likes-count">76 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <a href="../html/edit-post.html"><i class='bx bxs-edit bx-md'></i></a>
+                                            <i class='bx bxs-trash bx-md' ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -223,8 +241,8 @@
                                             <p class="likes-count">45 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <a href="../html/edit-post.html"><i class='bx bxs-edit bx-md'></i></a>
+                                            <i class='bx bxs-trash bx-md' ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -257,8 +275,8 @@
                                             <p class="likes-count">23 people liked this</p>
                                         </div>
                                         <div class="reaction-buttons">
-                                            <i class='bx bx-heart bx-md'></i>
-                                            <i class='bx bx-message-square-dots bx-md'></i>
+                                            <a href="../html/edit-post.html"><i class='bx bxs-edit bx-md'></i></a>
+                                            <i class='bx bxs-trash bx-md' ></i>
                                         </div>
                                     </div>
                                 </div>
@@ -266,49 +284,14 @@
                         </div>
                     </div>
                     <!-- LATEST BLOG CARD -->
-                    <div class="blogs-latest-container">
-                        <div class="latest-blog">
-                            <div class="latest-top">
-                                <div class="latest-line"></div>
-                                <h4>Latest Blogs</h4>
+                    <div class="profile-side-container">
+                        <div class="side-card">
+                            <div class="side-top">
+                                <i class='bx bxs-user'></i>
                             </div>
-                            <div class="latest-content">
-                                <div class="latest-slot">
-                                    <div class="latest-profile">
-                                        <i class='bx bxs-user bx-sm'></i>
-                                    </div>
-                                    <div class="latest-user">
-                                        <p>animal_lover56</p>
-                                        <h6>lions are leaving the wild</h6>
-                                    </div>
-                                </div>
-                                <div class="latest-slot">
-                                    <div class="latest-profile">
-                                        <i class='bx bxs-user bx-sm'></i>
-                                    </div>
-                                    <div class="latest-user">
-                                        <p>carolineweathers</p>
-                                        <h6>lions are leaving the wild</h6>
-                                    </div>
-                                </div>
-                                <div class="latest-slot">
-                                    <div class="latest-profile">
-                                        <i class='bx bxs-user bx-sm'></i>
-                                    </div>
-                                    <div class="latest-user">
-                                        <p>opalflowers</p>
-                                        <h6>lions are leaving the wild</h6>
-                                    </div>
-                                </div>
-                                <div class="latest-slot">
-                                    <div class="latest-profile">
-                                        <i class='bx bxs-user bx-sm'></i>
-                                    </div>
-                                    <div class="latest-user">
-                                        <p>fightforfreedom109</p>
-                                        <h6>lions are leaving the wild</h6>
-                                    </div>
-                                </div>
+                            <div class="side-username">
+                                <p>yunima</p>
+                                <p>Joined 03/15/2023</p>
                             </div>
                         </div>
                     </div>

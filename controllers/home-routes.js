@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
     console.log(posts);
 
     // this will allow it to respond with template to render along with date retrieved
-    res.render("feedpage", {
+    res.render("landingpage", {
       posts,
       loggedIn: req.session.loggedIn,
       username: req.session.username,

@@ -40,7 +40,7 @@ button:hover {
     cursor: pointer;
 }
 
-input {
+input, textarea {
     font-family: "Rubik", sans-serif;
 }
 
