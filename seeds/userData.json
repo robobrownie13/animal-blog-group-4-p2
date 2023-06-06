@@ -5,13 +5,13 @@
     "password": "pass12345"
   },
   {
-    "username": "jasmine",
-    "email": "jasmine@email.com",
-    "password": "pass12345"
-  },
-  {
     "username": "ray",
     "email": "ray@email.com",
+    "password": "pass12345"
+  }, 
+  {
+    "username": "jasmine",
+    "email": "jasmine@email.com",
     "password": "pass12345"
   },
   {

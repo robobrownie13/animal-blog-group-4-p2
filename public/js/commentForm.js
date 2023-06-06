@@ -1,20 +1,19 @@
-const newPostHandler = async (event) => {
+const newCommentHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector("").value.trim();
-    const content = document.querySelector("").value.trim();
+    const content = document.querySelector("#comment-input").value.trim();
   
-    if (title && content) {
-      const response = await fetch(`/api/posts`, {
+    if (content) {
+      const response = await fetch(`/api/comment`, {
         method: "POST",
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ comment: content,  post_id: event.target.dataset.post-id }),
         headers: {
           "Content-Type": "application/json",
         },
       });
   
       if (response.ok) {
-        document.location.replace("/feed");
+        return;
       } else {
         alert("Failed to create blogpost");
       }
@@ -60,7 +59,7 @@ const newPostHandler = async (event) => {
     }
   };
   
-  document.querySelector("").addEventListener("submit", newFormHandler);
+  document.querySelector("#comment-post").addEventListener("submit", newCommentHandler);
   
   document.querySelectorAll("").forEach((deleteButton) => {
     deleteButton.addEventListener("click", delButtonHandler);

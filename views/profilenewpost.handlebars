@@ -1,8 +1,20 @@
-<div class="new-post-container">
-    <form class="new-post-form">
-        <input type="text" id="title-form" placeholder="Title"/>
-        <textarea type="text" class="text-area" id="text-form" placeholder="Add Post Content">
-        </textarea>
-        <button class="create" ><a href="#"><i class='bx bxs-plus-circle' ></i></a></button>
-    </form>
+<section>
+{{!-- <div class="page-cover" id="edit-page-cover"></div> --}}
+<!-- NEW POST MODAL -->
+<div class="edit-post" id="edit-post-pop">
+    <div class="edit-card">
+        <div class="close-post-button">
+            <a><i class='bx bx-x-circle bx-sm'></i></a>
+        </div>
+        <form class="edit-form">
+            <div class="edit-text">
+                <input type="text" id="new-title" placeholder="Title">
+                <textarea rows="7" id="new-post" placeholder="What's on your mind?..."></textarea>
+            </div>
+            <div class="edit-button">
+                <button type="submit">new post</button>
+            </div>
+        </form>
+    </div>
 </div>
+</section>

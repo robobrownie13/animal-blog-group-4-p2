@@ -1,5 +1,6 @@
 .feed-container, .profile-container {
     width: 100vw;
+    min-height: calc(100vh - 77px);
     padding: 6em 0;
     color: white;
     background-color: var(--feed-background-color);
@@ -9,23 +10,28 @@
     position: relative;
 }
 
-.feed-content, .profile-content {
+.profile-content {
     width: 60%;
     display: flex;
     gap: 5em;
+}
+
+.feed-content {
+    width: 35%;
 }
 
 .post-container  {
     flex-basis: 65%;
 }
 
-.blogs-latest-container, .profile-side-container {
+.profile-side-container {
     flex-basis: 35%;
 }
 
 .profile-content {
     flex-direction: row-reverse;
 }
+
 
 /* --------BLOG BANNER POST --------- */
 
@@ -37,6 +43,16 @@
     justify-content: space-between;
     padding: 20px;
     border-radius: 20px;
+}
+
+.post-banner a {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.banner-new {
+    width: 90%;
 }
 
 .banner-profile {
@@ -66,8 +82,21 @@
     border-radius: 30px;
 }
 
+.other-users {
+    margin-top: 0;
+    margin-bottom: 5em;
+}
+
+.creation-info a {
+    color: white;
+}
+
 .top-blog-section, .middle-blog-section, .bottom-blog-section {
     padding: 20px 30px;
+}
+
+.bottom-blog-section {
+    padding: 10px 30px;
 }
 
 .middle-blog-section {
@@ -117,7 +146,9 @@
 }
 
 .username-feed-day {
-    font-size: 13px;
+    font-size: 12px !important;
+    opacity: .7 !important;
+    margin-top: 3px !important;
 }
 
 .reaction-counts p {
@@ -230,4 +261,32 @@
     font-size: 13px;
     opacity: .8;
     margin-top: 5px;
+}
+
+/* ----------NOT LOGGED IN---------- */
+.not-logged-container {
+    width: 100vw;
+    height: calc(100vh - 77px);
+    background-color: var(--feed-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-logged-content {
+    width: 20%;
+    background-color: aliceblue;
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.not-logged-content p {
+    color: var(--blog-color);
+}
+
+#not-logged {
+    margin-top: 20px;
+    background-color: var(--highlight-color);
+    border-radius: 10px;
 }

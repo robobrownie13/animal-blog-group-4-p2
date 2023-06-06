@@ -14,12 +14,12 @@ router.get("/", async (req, res) => {
           attributes: ["id", "comment", "post_id", "user_id", "date_created"],
           include: {
             model: User,
-            attributes: ["username", "id"],
+            attributes: ["id", "username"],
           },
         },
         {
           model: User,
-          attributes: ["username", "id"],
+          attributes: ["id", "username"],
         },
       ],
       order: [["date_created", "DESC"]],
@@ -27,16 +27,18 @@ router.get("/", async (req, res) => {
 
     // This will serialize the data retrieved
 
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    res.json(dbPostData);
 
-    // this will allow it to respond with template to render along with date retrieved
-    res.render("feedpage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-      username: req.session.username,
-      user_id: req.session.user_id,
-    });
+    // const posts = dbPostData.map((post) => post.get({ plain: true }));
+    // console.log(posts);
+
+    // // this will allow it to respond with template to render along with date retrieved
+    // res.render("feedpage", {
+    //   posts,
+    //   loggedIn: req.session.loggedIn,
+    //   username: req.session.username,
+    //   user_id: req.session.user_id,
+    // });
   } catch (err) {
     console.log(err, "-----------------------");
     res.status(500).json(err);

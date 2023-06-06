@@ -1,13 +1,11 @@
 .edit-post {
     width: 100vw;
-    height: calc(100vh - 78px);
-    position: fixed;
+    height: calc(100vh - 77px);
     z-index: 20;
-    top: 0;
-    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--feed-background-color);
 }
 
 .edit-card {
@@ -17,7 +15,11 @@
     border-radius: 20px;
 }
 
-.close-button i {
+.close-post-button {
+    text-align: left;
+}
+
+.close-post-button i {
     color: var(--background-color);
 }
 
@@ -39,7 +41,7 @@
 }
 
 .edit-form textarea {
-    padding: 30px;
+    padding: 20px;
     line-height: 18px;
 }
 
