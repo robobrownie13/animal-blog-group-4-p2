@@ -1,4 +1,4 @@
-const form = document.querySelector(".login-form");
+const loginForm = document.querySelector(".login-form");
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -92,20 +92,20 @@ const animalsData = [
   }
 ]
 
-const loginBackground = document.getElementById("#login");
 
-console.log(loginBackground);
 
 function backgroundLogin() {
-  const randomNum = Math.floor(Math.random() * animalsData.length)
-  if (window.innerWidth < 790 && window.innerWidth > 0) {
-      loginBackground.style.backgroundImage =   `url("/images/${animalsData[randomNum].mobile}")`;
-  }
-  if (window.innerWidth >= 790) {
-      loginBackground.style.backgroundImage =   `url("./images/${animalsData[randomNum].desktop}")`;
-  }
+    const loginBackground = document.querySelector("#login");
+    const randomNum = Math.floor(Math.random() * animalsData.length)
+    
+    if (window.innerWidth < 790 && window.innerWidth > 0) {
+        loginBackground.style.backgroundImage =   `url("../images/${animalsData[randomNum].mobile}")`;
+    }
+    if (window.innerWidth >= 790) {
+        loginBackground.style.backgroundImage =   `url("../images/${animalsData[randomNum].desktop}")`;
+    }
 }
 
 backgroundLogin();
 
-form?.addEventListener("submit", loginFormHandler);
+loginForm.addEventListener("submit", loginFormHandler);

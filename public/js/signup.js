@@ -1,4 +1,4 @@
-const form = document.querySelector(".signup-form");
+const signupForm = document.querySelector(".signup-form");
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
   window.location.href = "/";
 };
 
-const animalsData = [
+const animalsInfo = [
   {
       id: 1,
       mobile: "beautiful-vertical-closeup-shot-colorful-bee-eater.jpg",
@@ -102,20 +102,19 @@ const animalsData = [
   }
 ]
 
-const signupBackground = document.getElementById("#signup");
 
-console.log(signupBackground);
 
 function backgroundSignup() {
-    const randomNum = Math.floor(Math.random() * animalsData.length)
+    const signupBackground = document.querySelector("#signup");
+    const randomNum = Math.floor(Math.random() * animalsInfo.length)
     if (window.innerWidth < 650 && window.innerWidth > 0) {
-        signupBackground.style.backgroundImage =   `url("/images/${animalsData[randomNum].mobile}")`;
+        signupBackground.style.backgroundImage =   `url("../images/${animalsInfo[randomNum].mobile}")`;
     }
     if (window.innerWidth >= 650) {
-        signupBackground.style.backgroundImage =   `url("/images/${animalsData[randomNum].desktop}")`;
+        signupBackground.style.backgroundImage =   `url("../images/${animalsInfo[randomNum].desktop}")`;
     }
 }
 
 backgroundSignup();
 
-form?.addEventListener("submit", signupFormHandler);
+signupForm.addEventListener("submit", signupFormHandler);
