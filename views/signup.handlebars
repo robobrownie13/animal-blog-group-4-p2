@@ -1,24 +1,45 @@
 <section>
   <div class="signup" id="signup">
     <div class="signup-card">
-        <div class="signup-text">
-            <h2>Sign Up</h2>
+      <div class="signup-text">
+        <h2>Sign Up</h2>
+      </div>
+      <form class="signup-form">
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="text"
+            id="username-input"
+            placeholder="Username"
+          />
+          <input
+            class="form-input"
+            type="email"
+            id="email-input"
+            placeholder="Email"
+          />
+          <input
+            class="form-input"
+            type="password"
+            id="password-input"
+            placeholder="Password"
+          />
+          <input
+            class="form-input"
+            type="password"
+            id="confirm-input"
+            placeholder="Confirm password"
+          />
         </div>
-        <form class="signup-form">
-            <div class="form-group">
-                <input class="form-input" type="text" id="username-input" placeholder="Username"/>
-                <input class="form-input" type="email" id="email-input" placeholder="Email"/>
-                <input class="form-input" type="password" id="password-input" placeholder="Password"/>
-                <input class="form-input" type="password" id="confirm-input" placeholder="Confirm password"/>
-            </div>
-            <div class="form-button">
-                <button id="signup-button" type="submit">create account</button>
-            </div>
-        </form>
-        <div class="login-redirect">
-            <p>Already have an account?</p>
-            <a href="/login"><p>Switch to Log In!</p></a>
+        <div class="form-button">
+          <button id="signup-button" type="submit">create account</button>
         </div>
+      </form>
+      <div class="login-redirect">
+        <p>Already have an account?</p>
+        <a href="/login"><p>Switch to Log In!</p></a>
+      </div>
     </div>
-  </div> 
+  </div>
 </section>
+<script src="/js/signup.js"></script>
