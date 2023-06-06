@@ -102,18 +102,20 @@ const animalsData = [
   }
 ]
 
-const signupBackground = document.querySelector("#signup");
+const signupBackground = document.getElementById("#signup");
+
+console.log(signupBackground);
 
 function backgroundSignup() {
     const randomNum = Math.floor(Math.random() * animalsData.length)
     if (window.innerWidth < 650 && window.innerWidth > 0) {
-        signupBackground.style.backgroundImage =   `url("../images/${animalsData[randomNum].mobile}")`;
+        signupBackground.style.backgroundImage =   `url("/images/${animalsData[randomNum].mobile}")`;
     }
     if (window.innerWidth >= 650) {
-        signupBackground.style.backgroundImage =   `url("../images/${animalsData[randomNum].desktop}")`;
+        signupBackground.style.backgroundImage =   `url("/images/${animalsData[randomNum].desktop}")`;
     }
 }
 
 backgroundSignup();
 
-form.addEventListener("submit", signupFormHandler);
+form?.addEventListener("submit", signupFormHandler);
