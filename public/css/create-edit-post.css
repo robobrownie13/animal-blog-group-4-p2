@@ -1,0 +1,62 @@
+.edit-post {
+    width: 100vw;
+    height: calc(100vh - 78px);
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-card {
+    background-color: var(--blog-color);
+    padding: 30px;
+    width: 35%;
+    border-radius: 20px;
+}
+
+.close-button i {
+    color: var(--background-color);
+}
+
+.edit-form {
+    text-align: center;
+}
+
+.edit-form input, .edit-form textarea {
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: var(--feed-background-color);
+}
+
+.edit-form input {
+    margin: 10px 0 30px;
+    font-size: 18px;
+}
+
+.edit-form textarea {
+    padding: 30px;
+    line-height: 18px;
+}
+
+
+.edit-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-button {
+    margin-top: 20px;
+}
+
+.edit-button button {
+    background-color: var(--background-color);
+    text-transform: uppercase;
+    border-radius: 10px;
+    color: black;
+    padding: 15px 50px;
+}

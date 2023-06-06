@@ -166,18 +166,18 @@ main > article > .article-nav-section {
 }
 
 main > article:first-child > .article-image-section {
-    background-image: url("../../public/images/grey-crowned-crane-also-known-as-african-crowned-crane.jpg");
+    background-image: url("/images/grey-crowned-crane-also-known-as-african-crowned-crane.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 
 main > article:nth-child(2) > .article-image-section {
-    background-image: url("../../public/images/closeup-shot-colorful-loriini-blurred-background.jpg");
+    background-image: url("/images/closeup-shot-colorful-loriini-blurred-background.jpg");
 }
 
 main > article:nth-child(3) > .article-image-section {
-    background-image: url("../../public/images/multi-colored-lizard-perching-leafs-generative-ai.jpg");
+    background-image: url("/images/multi-colored-lizard-perching-leafs-generative-ai.jpg");
     background-position-y:center;
 }
 

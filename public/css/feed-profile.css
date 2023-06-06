@@ -1,4 +1,4 @@
-.feed-container {
+.feed-container, .profile-container {
     width: 100vw;
     padding: 6em 0;
     color: white;
@@ -9,21 +9,25 @@
     position: relative;
 }
 
-.feed-content {
-    width: 65%;
+.feed-content, .profile-content {
+    width: 60%;
     display: flex;
     gap: 5em;
 }
 
-.post-container {
+.post-container  {
     flex-basis: 65%;
 }
 
-.blogs-latest-container {
+.blogs-latest-container, .profile-side-container {
     flex-basis: 35%;
 }
 
-/* --------BLOG POST --------- */
+.profile-content {
+    flex-direction: row-reverse;
+}
+
+/* --------BLOG BANNER POST --------- */
 
 .post-banner {
     width: 100%;
@@ -43,6 +47,7 @@
     align-items: center;
     justify-content: center;
     background-color: #1b4b4b;
+    border: 1px solid var(--background-color);
 }
 
 .on-your-mind {
@@ -90,6 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1.5px solid var(--background-color);
 }
 
 .post-title {
@@ -115,7 +121,7 @@
 }
 
 .reaction-counts p {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .post-reactions {
@@ -130,9 +136,13 @@
     cursor: pointer;
 }
 
+.post-reactions a {
+    color: white;
+}
+
 /* ---------LATEST BLOGS SECTION---------- */
 
-.latest-blog {
+.latest-blog, .side-card {
     background-color: var(--small-container-color);
     width: 100%;
     padding: 20px;
@@ -189,4 +199,35 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+
+/* ----------LEFT SIDE PROFILE----------- */
+
+.side-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5em 0;
+}
+
+.side-top {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.side-top i {
+    font-size: 5em;
+}
+
+.side-username p:last-child {
+    font-size: 13px;
+    opacity: .8;
+    margin-top: 5px;
 }
