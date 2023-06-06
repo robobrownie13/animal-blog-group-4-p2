@@ -1,12 +1,77 @@
+.landing-container {
+    width: 100vw;
+}
+
+.landing-content {
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.landing-image {
+    flex-basis: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.landing-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.landing-text {
+    flex-basis: 40%;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.landing-content2 {
+    flex-direction: row-reverse;
+}
+
+.block {
+    height: 6.3em;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.landing-text h2 {
+    text-transform: uppercase;
+    font-size: 4.5em;
+    line-height: .8em;
+    margin-bottom: 30px;
+    letter-spacing: -6px;
+}
+/* 
+.landing-text {
+    text-align: center;
+} */
+
+.landing-text3 {
+    text-align: center;
+}
+
+.landing-button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.landing-button button {
+    border-radius: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    background-color: var(--highlight-color);
+}
+
+/* 
 main {
     flex-grow: 1;
     position: relative;
     overflow: hidden;
 }
 
-/* .landing-slide {
-    height: 100vh;
-} */
+
 
 main > article {
     height: 100%;
@@ -142,10 +207,7 @@ main > article > .article-title-section > h2 {
     letter-spacing: -2px;
 }
 
-/* main > article > .article-title-section > i {
-    color: rgba(255, 255, 255, 0.75);
-    font-size:  4rem;
-} */
+
 
 main > article > .article-nav-section > .article-nav-button {
     background-color: transparent;
@@ -331,4 +393,4 @@ main > article > .article-nav-section {
     .link:hover {
         color: var(--highlight-color);
     }
-
+ */
