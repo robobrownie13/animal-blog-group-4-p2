@@ -5,32 +5,176 @@ const sequelize = require("../config/connection");
 
 // all the posts from the user
 
-router.get("/", withAuth, (req, res) => {
-  Posts.findAll({
+// router.get("/user/:id", (req, res) => {
+//   Posts.findAll({
+//     where: {
+//       id: req.session.id,
+//     },
+//     attributes: ["id", "title", "post_text", "date_created", "user_id"],
+//     order: [["date_created", "DESC"]],
+//     include: [
+//       {
+//         model: Comments,
+//         attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+//         include: {
+//           model: User,
+//           attributes: ["id", "username"],
+//         },
+//       },
+//       {
+//         model: User,
+//         attributes: ["id", "username"],
+//       },
+//     ],
+//   })
+//     .then((dbPostData) => {
+//       const posts = dbPostData.map((post) => post.get({ plain: true }));
+//       res.render("profileuser", {
+//         posts,
+//         loggedIn: true
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err, "There's a problem!");
+//       res.status(500).json(err);
+//     });
+// });
+
+router.get("/user/:id", async (req, res) => {
+  try {
+    const dbUserData = await User.findAll({
+      attributes: { exclude: ["password"]},
+      where: {
+        id: req.session.id
+      },
+      include: [
+        {
+          model: Posts,
+          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+        },
+        {
+          model: Comments,
+          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
+        }
+      ]
+    });
+
+    const users = dbUserData.map((post) => post.get({ plain: true }));
+      res.render("profileuser", {
+        users,
+        loggedIn: true
+      })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const dbUserData = await User.findAll({
+      attributes: { exclude: ["password"]},
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Posts,
+          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+        },
+        {
+          model: Comments,
+          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
+        }
+      ]
+    });
+
+    const users = dbUserData.map((post) => post.get({ plain: true }));
+      res.render("profile", {
+        users,
+        loggedIn: true
+      })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/post/new", (req, res) => {
+  res.render("profilenewpost", { loggedIn: true });
+});
+
+router.get("/post/edit/:id", withAuth, (req, res) => {
+  res.render("profile-update", { loggedIn: true });
+});
+
+
+// router.get("/:id", (req, res) => {
+//   Posts.findAll({
+//     where: {
+//       id: req.params.id,
+//     },
+//     attributes: ["id", "title", "post_text", "date_created", "user_id"],
+//     order: [["date_created", "DESC"]],
+//     include: [
+//       {
+//         model: Comments,
+//         attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+//         include: {
+//           model: User,
+//           attributes: ["id", "username"],
+//         },
+//       },
+//       {
+//         model: User,
+//         attributes: ["id", "username"],
+//       },
+//     ],
+//   })
+//     .then((dbPostData) => {
+//       const posts = dbPostData.map((post) => post.get({ plain: true }));
+//       res.render("profile", {
+//         posts,
+//         loggedIn: true
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err, "There's a problem!");
+//       res.status(500).json(err);
+//     });
+// });
+
+// this will have the ability to edit a post
+
+router.put("/edit/:id", withAuth, (req, res) => {
+  Posts.findOne({
     where: {
-      user_id: req.session.user_id,
+      id: req.params.id,
     },
-    attributes: ["id", "title", "post_text", "date_created"],
-    order: [["date_created", "DESC"]],
+    attributes: ["id", "title", "post_text", "date_created", "user_id"],
     include: [
       {
-        model: Comments,
-        attributes: ["id", "comment", "post_id", "user_id", "date_created"],
-        include: {
-          model: User,
-          attributes: ["username", "id"],
-        },
+        model: User,
+        attributes: ["id", "username"],
       },
       {
-        model: User,
-        attributes: ["username", "id"],
+        model: Comments,
+        attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+        includes: {
+          model: User,
+          attributes: ["id", "username"],
+        },
       },
     ],
   })
     .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("profile", {
-        posts,
+      if (!dbPostData) {
+        res.status(404).json({ message: "This id has no post." });
+        return;
+      }
+      const user = dbPostData.get({ plain: true });
+      res.render("profile-update", {
+        user,
         loggedIn: true,
         username: req.session.username,
       });
@@ -41,51 +185,6 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-// this will have the ability to edit a post
-
-router.put("/edit/:id", withAuth, (req, res) => {
-  Posts.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ["id", "title", "post_text", "date_created"],
-    include: [
-      {
-        model: User,
-        attributes: ["username", "id"],
-      },
-      {
-        model: Comments,
-        attributes: ["id", "comment", "post_id", "user_id", "date_created"],
-        includes: {
-          model: User,
-          attributes: ["username", "id"],
-        },
-      },
-    ],
-  })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "This id has no post." });
-        return;
-      }
-      const post = dbPostData.get({ plain: true });
-      res.render("edit-post", {
-        post,
-        loggedIn: true,
-        usernanme: req.session.username,
-      });
-    })
-    .catch((err) => {
-      console.log(err, "!!!!!!HI!!!!!!");
-      res.status(500).json(err);
-    });
-});
-
 // this will get a new post
-
-router.post("/new", withAuth, (req, res) => {
-  res.render("new-post", { username: req.session.username });
-});
 
 module.exports = router;

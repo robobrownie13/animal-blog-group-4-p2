@@ -8,7 +8,7 @@
             <i class="bx bxs-user bx-md"></i>
           </div>
 
-          <div class="on-your-mind" data-location="">
+          <div class="on-your-mind">
             <p>What's on your mind?...</p>
           </div>
 
@@ -24,7 +24,7 @@
                     <i class="bx bxs-user bx-sm"></i>
                   </div>
                   <div class="creation-info">
-                    <p class="username-feed-post">{{post.user.username}}</p>
+                    <a href="/profile/{{post.user.id}}"><p class="username-feed-post">{{post.user.username}}</p></a>
                     <p class="username-feed-day">{{format_date
                         post.date_created
                       }}</p>
@@ -44,11 +44,9 @@
                 <div class="post-reactions">
                   <div class="reaction-counts">
                     <p class="comments-count">{{comments.length}} comments</p>
-                    <p class="likes-count"># people liked this</p>
                   </div>
                   <div class="reaction-buttons">
-                    <i class="bx bx-heart bx-md"></i>
-                    <i class="bx bx-message-square-dots bx-md"></i>
+                    <a href="/feed/{{post.id}}"><i class="bx bx-message-square-dots bx-md"></i></a>
                   </div>
                 </div>
               </div>
@@ -58,7 +56,7 @@
       </div>
 
       <!-- LATEST BLOG CARD -->
-      <div class="blogs-latest-container">
+      {{!-- <div class="blogs-latest-container">
         <div class="latest-blog">
           <div class="latest-top">
             <div class="latest-line"></div>
@@ -103,7 +101,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

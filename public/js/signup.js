@@ -6,7 +6,7 @@ const signupFormHandler = async (event) => {
   const emailInput = document.getElementById("email-input").value.trim();
   const passwordInput = document.getElementById("password-input").value.trim();
 
-  const warningText = document.querySelector("#signup-warning");
+  // const warningText = document.querySelector("#signup-warning");
 
   const confirmPasswordInput = document
     .getElementById("confirm-input")
@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
     console.log("HIIIII");
   if (passwordInput !== confirmPasswordInput) {
     console.log("HIIIII");
-    warningText.innerText = "Passwords must match!";
+    // warningText.innerText = "Passwords must match!";
     return;
   }
 

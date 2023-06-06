@@ -1,21 +1,28 @@
 <header>
-    <nav>
-      <div class="logo-with-search">
-        <div class="oasis-logo">
-          <a href="/"><h2>oasis</h2></a>
-        </div>
-        <div class="search-bar" id="search-container">
-          <input type="search" id="nav-search" placeholder="Search...">
-        </div>
+  <nav>
+    <div class="logo-with-search">
+      <div class="oasis-logo">
+        <a href="/"><h2>oasis</h2></a>
       </div>
-      <div class="nav-with-button">
-        <div class="right-navigation" id="right-navigation">
-          <a href="/feed"><i class='bx bx-sidebar bx-sm' title="Feed"></i></a>
-          <a href="/profile"><i class='bx bxs-user bx-sm' title="Profile"></i></a>
-        </div>
-        <div class="right-button">
-          <a href="/login"><button>Log In</button></a>
-        </div>
+      <div class="search-bar hidden" id="search-container">
+        <input type="search" id="nav-search" placeholder="Search...">
       </div>
-    </nav>
-  </header>
+    </div>
+    <div class="nav-with-button">
+      <div class="right-navigation hidden" id="right-navigation">
+        <a href="/feed"><i class='bx bx-sidebar bx-sm' title="Feed"></i></a>
+        <a href="/profile/user/{{id}}"><i class='bx bxs-user bx-sm' title="Profile"></i></a>
+      </div>
+      {{#if loggedIn}}
+      <div class="right-button">
+        <a href="/"><button>Log Out</button></a>
+      </div>
+      {{else}}
+      <div class="right-button">
+        <a href="/login"><button>Log In</button></a>
+      </div>
+      {{/if}}
+    </div>
+  </nav>
+</header>
+<script src="/js/index.js"></script>

@@ -1,17 +1,147 @@
 [
   {
-    "comment": "I'm scared of this animal!"
+    "comment": "I'm scared of this animal!",
+    "user_id": 1,
+    "post_id": 1
   },
   {
-    "comment": "I never thought about this before!"
+    "comment": "Looks incredible!",
+    "user_id": 1,
+    "post_id": 1
   },
   {
-    "comment": "How can I help?"
+    "comment": "It's giving endangered",
+    "user_id": 1,
+    "post_id": 1
   },
   {
-    "comment": "Where can I donate?"
+    "comment": "Great information as always!",
+    "user_id": 1,
+    "post_id": 1
   },
   {
-    "comment": "This was very informative!"
+    "comment": "It feels great to be understood!",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "comment": "I never thought about this before!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "It takes a village to make this happen",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "You guys aren't hearing this!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "Louder for the people in the back!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "I never thought about this before!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "I never thought about this before!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "I never thought about this before!",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "comment": "Amazing info",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "How can I help?",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "Doesn't make much sense but let's pretend it does",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "...",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "Great advice!",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "I am a troll :O",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "The message isn't giving what you thought it was giving",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "This made a whole lot of sense",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "comment": "Where can I donate?",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "This was very informative!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "Great take!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "This was very informative!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "I've been saying this for years!!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "I told my mom this and she kicked me out...",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "I support this message!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "Great advice! You deserve a follow!",
+    "user_id": 4,
+    "post_id": 4
+  },
+  {
+    "comment": "This was very informative!",
+    "user_id": 4,
+    "post_id": 4
   }
 ]

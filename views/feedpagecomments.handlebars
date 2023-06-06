@@ -1,0 +1,75 @@
+<section>
+<div class="feed-comments-container">
+    {{#each posts as |post|}}
+    <div class="blog-card">
+        <div class="top-blog-section">
+            <div class="x-out">
+                <a href="/feed"><i class='bx bxs-x-circle'></i></a>
+            </div>
+            <div class="blog-user-profile">
+                <div class="creation-profile">
+                <i class="bx bxs-user bx-sm"></i>
+                </div>
+                <div class="creation-info">
+                    <a href="/profile/{{post.user.id}}"><p class="username-feed-post">{{post.user.username}}</p></a>
+                    <p class="username-feed-day">{{format_date
+                        post.date_created
+                        }}</p>
+                </div>
+            </div>
+            <div class="post-title">
+                <h2>{{post.title}}</h2>
+            </div>
+        </div>
+        <div class="middle-blog-section">
+        <div class="post-body-container">
+            <p class="post-body">{{post.post_text}}</p>
+        </div>
+        </div>
+        <div class="blog-border"></div>
+        <div class="bottom-blog-section">
+            {{!-- COMMENT SECTION --}}
+            <div class="comment-profile-form">
+                <div class="comment-profile">
+                    <i class="bx bxs-user bx-sm"></i>
+                </div>
+                {{!-- COMMENT FORM --}}
+                <form class="comment-form">
+                    <div class="comment-input">
+                        <input type="text" placeholder="Add a comment..." id="comment-input">
+                    </div>
+                    <div class="comment-button">
+                        <button id="comment-post">Post</button>
+                    </div>
+                </form>
+                {{!--  --}}
+            </div>
+            <div class="comment-posts-container">
+                <div class="comment-posts">
+                {{#each post.comments}}
+                <div class="comment-card">
+                    <div class="comment-content">
+                        <div class="comment-profile">
+                            <i class="bx bxs-user bx-xs"></i>
+                        </div>
+                        <div class="comment-date-text">
+                            <div class="comment-date">
+                                <p>{{format_date date_created}}</p>
+                            </div>
+                            <div class="comment-text">
+                                <p>{{comment}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+            <div class="close-button">
+                <a href="/feed"><button>CLOSE</button></a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</section>

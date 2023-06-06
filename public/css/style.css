@@ -21,7 +21,7 @@ body {
     font-family: "Rubik", sans-serif;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 100vw;
     margin: 0px;
     overflow-x: hidden;
 }

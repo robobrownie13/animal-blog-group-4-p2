@@ -1,5 +1,56 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Posts, Comments } = require("../../models");
+
+// CREATE ALL USERS
+router.get('/', async (req, res) => {
+  try {
+    const dbUserData = await User.findAll({
+      attributes: { exclude: ["password"]},
+      include: [
+        {
+          model: Posts,
+          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+        },
+        {
+          model: Comments,
+          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
+        }
+      ]
+    });
+
+    res.status(200).json(dbUserData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET ONE USER
+router.get('/:id', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      attributes: { exclude: ["password"]},
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Posts,
+          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+        },
+        {
+          model: Comments,
+          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
+        }
+      ]
+    });
+
+    res.status(200).json(dbUserData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 router.post("/", async (req, res) => {
   try {

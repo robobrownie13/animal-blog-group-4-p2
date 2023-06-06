@@ -21,7 +21,8 @@ const loginFormHandler = async (event) => {
       console.log("HI!!!!!!!!!");
       document.location.replace("/feed");
     } else {
-      console.log("Hiiiii");
+      console.log("Not working!");
+      warningText
     }
   }
 };

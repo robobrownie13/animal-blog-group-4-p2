@@ -1,6 +1,6 @@
 .login, .signup {
     width: 100vw;
-    height: calc(100vh - 78px);
+    height: calc(100vh - 77px);
     display: flex;
     align-items: center;
     justify-content: center;

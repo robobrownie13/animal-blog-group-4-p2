@@ -1,0 +1,154 @@
+.feed-comments-container {
+    /* width: 100vw; */
+    background-color: var(--feed-background-color);
+    padding: 5em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.feed-comments-container .blog-card {
+    width: 35%;
+    margin: 0;
+    color: white;
+}
+
+.feed-comments-container .blog-card p {
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+/* ------------COMMENT SECTION-------------- */
+
+.comment-profile-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--feed-background-color);
+}
+.comment-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 85%;
+}
+
+.comment-input {
+    width: 100%;
+}
+
+.comment-input input {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--blog-color);
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+.comment-input input::placeholder {
+    color: var(--blog-color);
+    opacity: .7;
+}
+.comment-input input::-moz-placeholder {
+    color: var(--blog-color);
+    opacity: .7;
+}
+
+.comment-form button{
+    padding: 5px 20px;
+    background-color: var(--small-container-color);
+}
+
+/* ---------COMMENT CARDS---------- */
+.comment-posts-container {
+    height: 25em;
+    overflow-y: scroll;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.comment-posts-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.comment-posts-container::-webkit-scrollbar-track {
+    background-color: #367B7B;
+    border-radius: 10px;
+}
+
+.comment-posts-container::-webkit-scrollbar-thumb {
+    background-color: #1738387e;
+    border-radius: 10px;
+}
+
+.comment-posts { 
+    overflow-y: hidden;
+}
+
+.comment-card .comment-profile {
+    width: 35px;
+    height: 35px;
+}
+
+.comment-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.comment-date-text {
+    padding: 15px;
+    background-color: #367B7B;
+    width: 85%;
+    justify-self: right;
+    border-radius: 10px;
+}
+
+.comment-date {
+    margin-bottom: 5px;
+}
+
+.comment-date p {
+    font-size: 13px !important; 
+    font-weight: 200 !important;
+    opacity: .8;
+}
+
+.comment-text p {
+    font-size: 14px !important;
+    font-weight: 100 !important;
+}
+
+/* ----------X AND CLOSE BUTTON------------- */
+.x-out {
+    margin-bottom: 15px;
+}
+
+.x-out a {
+    color: var(--background-color);
+}
+
+.x-out i {
+    font-size: 20px;
+}
+
+.close-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.close-button button {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    color: var(--feed-background-color);
+}
