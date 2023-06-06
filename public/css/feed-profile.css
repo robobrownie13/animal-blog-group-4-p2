@@ -13,7 +13,7 @@
 .profile-content {
     width: 60%;
     display: flex;
-    gap: 5em;
+    gap: 4em;
 }
 
 .feed-content {
@@ -289,4 +289,60 @@
     margin-top: 20px;
     background-color: var(--highlight-color);
     border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .feed-content {
+        width: 85%;
+    }
+
+    .profile-content {
+        width: 85%;
+    }
+
+    .post-container  {
+        flex-basis: 100%;
+    }
+    
+    .profile-side-container {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .feed-content {
+        width: 65%;
+    }
+
+    .profile-content {
+        width: 85%;
+        gap: 2em;
+    }
+
+    .post-container  {
+        flex-basis: 65%;
+    }
+    
+    .profile-side-container {
+        flex-basis: 35%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px)  {
+    .feed-content {
+        width: 45%;
+    }
+
+    .profile-content {
+        width: 75%;
+        gap: 2em;
+    }
+
+    .post-container  {
+        flex-basis: 65%;
+    }
+    
+    .profile-side-container {
+        flex-basis: 35%;
+    }
 }

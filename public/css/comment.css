@@ -152,3 +152,22 @@
     border-radius: 10px;
     color: var(--feed-background-color);
 }
+
+
+@media screen and (max-width: 767px) {
+    .feed-comments-container .blog-card {
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .feed-comments-container .blog-card {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px)  {
+    .feed-comments-container .blog-card {
+        width: 45%;
+    }
+}
