@@ -5,95 +5,96 @@ const sequelize = require("../config/connection");
 
 // all the posts from the user
 
-// router.get("/user/:id", (req, res) => {
-//   Posts.findAll({
-//     where: {
-//       id: req.session.id,
-//     },
-//     attributes: ["id", "title", "post_text", "date_created", "user_id"],
-//     order: [["date_created", "DESC"]],
-//     include: [
-//       {
-//         model: Comments,
-//         attributes: ["id", "comment", "date_created", "user_id", "post_id"],
-//         include: {
-//           model: User,
-//           attributes: ["id", "username"],
-//         },
-//       },
-//       {
-//         model: User,
-//         attributes: ["id", "username"],
-//       },
-//     ],
-//   })
-//     .then((dbPostData) => {
-//       const posts = dbPostData.map((post) => post.get({ plain: true }));
-//       res.render("profileuser", {
-//         posts,
-//         loggedIn: true
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err, "There's a problem!");
-//       res.status(500).json(err);
-//     });
-// });
-
-router.get("/user/:id", async (req, res) => {
-  try {
-    const dbUserData = await User.findAll({
-      attributes: { exclude: ["password"]},
-      where: {
-        id: req.session.id
-      },
-      include: [
-        {
-          model: Posts,
-          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+router.get("/user", (req, res) => {
+  Posts.findAll({
+    where: {
+      id: req.session.id,
+    },
+    attributes: ["id", "title", "post_text", "date_created", "user_id"],
+    order: [["date_created", "DESC"]],
+    include: [
+      {
+        model: Comments,
+        attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+        include: {
+          model: User,
+          attributes: ["id", "username"],
         },
-        {
-          model: Comments,
-          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
-        }
-      ]
-    });
-
-    const users = dbUserData.map((post) => post.get({ plain: true }));
+      },
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("profileuser", {
-        users,
+        posts,
         loggedIn: true
-      })
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+      });
+    })
+    .catch((err) => {
+      console.log(err, "There's a problem!");
+      res.status(500).json(err);
+    });
 });
+
+// router.get("/user", withAuth, async (req, res) => {
+//   try {
+//     const dbUserData = await User.findAll({
+//       attributes: { exclude: ["password"] },
+//       where: {
+//         id: req.session.id,
+//       },
+//       include: [
+//         {
+//           model: Posts,
+//           attributes: ["id", "title", "post_text", "date_created", "user_id"],
+//         },
+//         {
+//           model: Comments,
+//           attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+//         },
+//       ],
+//     });
+
+//     const user = dbUserData.map((post) => post.get({ plain: true }));
+//     res.render("profileuser", {
+//       user,
+//       loggedIn: true,
+//       id: req.session.id,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/:id", async (req, res) => {
   try {
     const dbUserData = await User.findAll({
-      attributes: { exclude: ["password"]},
+      attributes: { exclude: ["password"] },
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
       include: [
         {
           model: Posts,
-          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+          attributes: ["id", "title", "post_text", "date_created", "user_id"],
         },
         {
           model: Comments,
-          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
-        }
-      ]
+          attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+        },
+      ],
     });
 
     const users = dbUserData.map((post) => post.get({ plain: true }));
-      res.render("profile", {
-        users,
-        loggedIn: true
-      })
+    res.render("profile", {
+      users,
+      loggedIn: true,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -107,7 +108,6 @@ router.get("/post/new", (req, res) => {
 router.get("/post/edit/:id", withAuth, (req, res) => {
   res.render("profile-update", { loggedIn: true });
 });
-
 
 // router.get("/:id", (req, res) => {
 //   Posts.findAll({
