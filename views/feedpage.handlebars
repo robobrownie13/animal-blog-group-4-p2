@@ -1,104 +1,109 @@
 <section>
-    <div class="feed-container">
-        <div class="feed-content">
-            <div class="post-container">
-                <!-- TOP POST BANNER -->
-                <div class="post-banner">
-                    <div class="banner-profile">
-                        <i class='bx bxs-user bx-md'></i>
-                    </div>
-                    
-                    <div class="on-your-mind" data-location="">
-                        <p>What's on your mind?...</p>
-                    </div>
-                    
-                </div>
-                <!-- BLOG POSTS DISPLAY -->
-                <div class="blog-posts">
-                    
-                    <div class="blog-card">
-                        <div class="top-blog-section">
-                            <div class="blog-user-profile">
-                                <div class="creation-profile">
-                                    <i class='bx bxs-user bx-sm'></i>
-                                </div>
-                                <div class="creation-info">
-                                    <p class="username-feed-post">lomer204</p>
-                                    <p class="username-feed-day">5 days ago</p>
-                                </div>
-                            </div>
-                            <div class="post-title">
-                                <h2>Hummingbirds Are Becoming Extinct</h2>
-                            </div>
-                        </div>
-                        <div class="middle-blog-section">
-                            <div class="post-body-container">
-                                <p class="post-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt atque, dolor cumque illo quis quae ullam eum nostrum quam officia cum laborum hic iste aperiam libero at, vitae odio, nemo recusandae laudantium ut harum unde.</p>
-                            </div>
-                        </div>
-                        <div class="blog-border"></div>
-                        <div class="bottom-blog-section">
-                            <div class="post-reactions">
-                                <div class="reaction-counts">
-                                    <p class="comments-count">32 comments</p>
-                                    <p class="likes-count">76 people liked this</p>
-                                </div>
-                                <div class="reaction-buttons">
-                                    <i class='bx bx-heart bx-md'></i>
-                                    <i class='bx bx-message-square-dots bx-md'></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-            <!-- LATEST BLOG CARD -->
-            <div class="blogs-latest-container">
-                <div class="latest-blog">
-                    <div class="latest-top">
-                        <div class="latest-line"></div>
-                        <h4>Latest Blogs</h4>
-                    </div>
-                    <div class="latest-content">
-                        <div class="latest-slot">
-                            <div class="latest-profile">
-                                <i class='bx bxs-user bx-sm'></i>
-                            </div>
-                            <div class="latest-user">
-                                <p>animal_lover56</p>
-                                <h6>lions are leaving the wild</h6>
-                            </div>
-                        </div>
-                        <div class="latest-slot">
-                            <div class="latest-profile">
-                                <i class='bx bxs-user bx-sm'></i>
-                            </div>
-                            <div class="latest-user">
-                                <p>carolineweathers</p>
-                                <h6>lions are leaving the wild</h6>
-                            </div>
-                        </div>
-                        <div class="latest-slot">
-                            <div class="latest-profile">
-                                <i class='bx bxs-user bx-sm'></i>
-                            </div>
-                            <div class="latest-user">
-                                <p>opalflowers</p>
-                                <h6>lions are leaving the wild</h6>
-                            </div>
-                        </div>
-                        <div class="latest-slot">
-                            <div class="latest-profile">
-                                <i class='bx bxs-user bx-sm'></i>
-                            </div>
-                            <div class="latest-user">
-                                <p>fightforfreedom109</p>
-                                <h6>lions are leaving the wild</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="feed-container">
+    <div class="feed-content">
+      <div class="post-container">
+        <!-- TOP POST BANNER -->
+        <div class="post-banner">
+          <div class="banner-profile">
+            <i class="bx bxs-user bx-md"></i>
+          </div>
+
+          <div class="on-your-mind" data-location="">
+            <p>What's on your mind?...</p>
+          </div>
+
         </div>
+
+        <!-- BLOG POSTS DISPLAY -->
+        <div class="blog-posts">
+          {{#each posts as |post|}}
+            <div class="blog-card">
+              <div class="top-blog-section">
+                <div class="blog-user-profile">
+                  <div class="creation-profile">
+                    <i class="bx bxs-user bx-sm"></i>
+                  </div>
+                  <div class="creation-info">
+                    <p class="username-feed-post">{{post.user.username}}</p>
+                    <p class="username-feed-day">{{format_date
+                        post.date_created
+                      }}</p>
+                  </div>
+                </div>
+                <div class="post-title">
+                  <h2>{{post.title}}</h2>
+                </div>
+              </div>
+              <div class="middle-blog-section">
+                <div class="post-body-container">
+                  <p class="post-body">{{post.post_text}}</p>
+                </div>
+              </div>
+              <div class="blog-border"></div>
+              <div class="bottom-blog-section">
+                <div class="post-reactions">
+                  <div class="reaction-counts">
+                    <p class="comments-count">{{comments.length}} comments</p>
+                    <p class="likes-count"># people liked this</p>
+                  </div>
+                  <div class="reaction-buttons">
+                    <i class="bx bx-heart bx-md"></i>
+                    <i class="bx bx-message-square-dots bx-md"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <!-- LATEST BLOG CARD -->
+      <div class="blogs-latest-container">
+        <div class="latest-blog">
+          <div class="latest-top">
+            <div class="latest-line"></div>
+            <h4>Latest Blogs</h4>
+          </div>
+          <div class="latest-content">
+            <div class="latest-slot">
+              <div class="latest-profile">
+                <i class="bx bxs-user bx-sm"></i>
+              </div>
+              <div class="latest-user">
+                <p>animal_lover56</p>
+                <h6>lions are leaving the wild</h6>
+              </div>
+            </div>
+            <div class="latest-slot">
+              <div class="latest-profile">
+                <i class="bx bxs-user bx-sm"></i>
+              </div>
+              <div class="latest-user">
+                <p>carolineweathers</p>
+                <h6>lions are leaving the wild</h6>
+              </div>
+            </div>
+            <div class="latest-slot">
+              <div class="latest-profile">
+                <i class="bx bxs-user bx-sm"></i>
+              </div>
+              <div class="latest-user">
+                <p>opalflowers</p>
+                <h6>lions are leaving the wild</h6>
+              </div>
+            </div>
+            <div class="latest-slot">
+              <div class="latest-profile">
+                <i class="bx bxs-user bx-sm"></i>
+              </div>
+              <div class="latest-user">
+                <p>fightforfreedom109</p>
+                <h6>lions are leaving the wild</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

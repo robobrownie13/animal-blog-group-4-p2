@@ -6,38 +6,7 @@ const sequelize = require("../config/connection");
 
 router.get("/", async (req, res) => {
   try {
-    // this will retreive all the posts from the database (db)
-    const dbPostData = await Posts.findAll({
-      attributes: ["id", "title", "post_text", "date_created"],
-      include: [
-        {
-          model: Comments,
-          attributes: ["id", "comment", "post_id", "user_id", "date_created"],
-          include: {
-            model: User,
-            attributes: ["username", "id"],
-          },
-        },
-        {
-          model: User,
-          attributes: ["username", "id"],
-        },
-      ],
-      order: [["date_created", "DESC"]],
-    });
-
-    // This will serialize the data retrieved
-
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
-    console.log(posts);
-
-    // this will allow it to respond with template to render along with date retrieved
-    res.render("landingpage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-      username: req.session.username,
-      user_id: req.session.user_id,
-    });
+    res.render("landingpage");
   } catch (err) {
     console.log(err, "-----------------------");
     res.status(500).json(err);
