@@ -69,7 +69,7 @@ nav {
     visibility: hidden;
 }
 
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .login-card, .signup-card {
         width: 75%;
     }
@@ -85,5 +85,5 @@ nav {
     .login-card, .signup-card {
         width: 45%;
     }
-} */
+}
 
