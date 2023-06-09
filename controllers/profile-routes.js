@@ -3,77 +3,53 @@ const { User, Posts, Comments } = require("../models");
 const withAuth = require("../utils/auth");
 const sequelize = require("../config/connection");
 
-// all the posts from the user
-
-router.get("/user", (req, res) => {
-  Posts.findAll({
-    where: {
-      id: req.session.id,
-    },
-    attributes: ["id", "title", "post_text", "date_created", "user_id"],
-    order: [["date_created", "DESC"]],
-    include: [
-      {
-        model: Comments,
-        attributes: ["id", "comment", "date_created", "user_id", "post_id"],
-        include: {
-          model: User,
-          attributes: ["id", "username"],
+router.get("/user", withAuth, async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      },
+      include: [
+        {
+          model: Posts,
+          attributes: ["id", "title", "post_text", "date_created", "user_id"],
+          include: [
+            {
+              model: Comments,
+              attributes: [
+                "id",
+                "comment",
+                "date_created",
+                "user_id",
+                "post_id",
+              ],
+            },
+            {
+              model: User,
+              attributes: { exclude: ["password"] },
+            },
+          ],
         },
-      },
-      {
-        model: User,
-        attributes: ["id", "username"],
-      },
-    ],
-  })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("profileuser", {
-        posts,
-        loggedIn: true
-      });
-    })
-    .catch((err) => {
-      console.log(err, "There's a problem!");
-      res.status(500).json(err);
+
+      ],
     });
+
+    const user = dbUserData.get({ plain: true });
+
+    res.render("profileuser", {
+      user,
+      loggedIn: true,
+    });
+  } catch (err) {
+  
+    res.status(500).json(err);
+  }
 });
 
-// router.get("/user", withAuth, async (req, res) => {
-//   try {
-//     const dbUserData = await User.findAll({
-//       attributes: { exclude: ["password"] },
-//       where: {
-//         id: req.session.id,
-//       },
-//       include: [
-//         {
-//           model: Posts,
-//           attributes: ["id", "title", "post_text", "date_created", "user_id"],
-//         },
-//         {
-//           model: Comments,
-//           attributes: ["id", "comment", "date_created", "user_id", "post_id"],
-//         },
-//       ],
-//     });
-
-//     const user = dbUserData.map((post) => post.get({ plain: true }));
-//     res.render("profileuser", {
-//       user,
-//       loggedIn: true,
-//       id: req.session.id,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
-    const dbUserData = await User.findAll({
+    const dbUserData = await User.findOne({
       attributes: { exclude: ["password"] },
       where: {
         id: req.params.id,
@@ -82,70 +58,57 @@ router.get("/:id", async (req, res) => {
         {
           model: Posts,
           attributes: ["id", "title", "post_text", "date_created", "user_id"],
-        },
-        {
-          model: Comments,
-          attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+          include: [
+            {
+              model: Comments,
+              attributes: [
+                "id",
+                "comment",
+                "date_created",
+                "user_id",
+                "post_id",
+              ],
+            },
+            {
+              model: User,
+              attributes: { exclude: ["password"] },
+            },
+          ],
         },
       ],
     });
 
-    const users = dbUserData.map((post) => post.get({ plain: true }));
+    const user = dbUserData.get({ plain: true });
     res.render("profile", {
-      users,
+      user,
       loggedIn: true,
     });
   } catch (err) {
-    console.log(err);
+
     res.status(500).json(err);
   }
 });
-
-router.get("/post/new", (req, res) => {
+//allows user to go to new post page
+router.get("/post/new", withAuth, (req, res) => {
   res.render("profilenewpost", { loggedIn: true });
 });
 
-router.get("/post/edit/:id", withAuth, (req, res) => {
-  res.render("profile-update", { loggedIn: true });
+//allows user to go to post editor
+router.get("/post/edit/:id", withAuth, async (req, res) => {
+  try {
+    const dbPostData = await Posts.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    const post = dbPostData.get({ plain: true });
+    res.render("profile-update", { post, loggedIn: true });
+  } catch (err) {
+
+    res.status(500).json(err);
+  }
 });
-
-// router.get("/:id", (req, res) => {
-//   Posts.findAll({
-//     where: {
-//       id: req.params.id,
-//     },
-//     attributes: ["id", "title", "post_text", "date_created", "user_id"],
-//     order: [["date_created", "DESC"]],
-//     include: [
-//       {
-//         model: Comments,
-//         attributes: ["id", "comment", "date_created", "user_id", "post_id"],
-//         include: {
-//           model: User,
-//           attributes: ["id", "username"],
-//         },
-//       },
-//       {
-//         model: User,
-//         attributes: ["id", "username"],
-//       },
-//     ],
-//   })
-//     .then((dbPostData) => {
-//       const posts = dbPostData.map((post) => post.get({ plain: true }));
-//       res.render("profile", {
-//         posts,
-//         loggedIn: true
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err, "There's a problem!");
-//       res.status(500).json(err);
-//     });
-// });
-
-// this will have the ability to edit a post
-
+//changes post by id
 router.put("/edit/:id", withAuth, (req, res) => {
   Posts.findOne({
     where: {
@@ -180,11 +143,10 @@ router.put("/edit/:id", withAuth, (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err, "!!!!!!HI!!!!!!");
+
       res.status(500).json(err);
     });
 });
 
-// this will get a new post
 
 module.exports = router;

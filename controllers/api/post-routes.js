@@ -25,22 +25,8 @@ router.get("/", async (req, res) => {
       order: [["date_created", "DESC"]],
     });
 
-    // This will serialize the data retrieved
-
     res.json(dbPostData);
-
-    // const posts = dbPostData.map((post) => post.get({ plain: true }));
-    // console.log(posts);
-
-    // // this will allow it to respond with template to render along with date retrieved
-    // res.render("feedpage", {
-    //   posts,
-    //   loggedIn: req.session.loggedIn,
-    //   username: req.session.username,
-    //   user_id: req.session.user_id,
-    // });
   } catch (err) {
-    console.log(err, "-----------------------");
     res.status(500).json(err);
   }
 });
@@ -51,7 +37,7 @@ router.post("/", withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log("This is the new post", newPost);
+
     res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);

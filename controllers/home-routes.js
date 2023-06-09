@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Posts, Comments } = require("../models");
 const sequelize = require("../config/connection");
+const withAuth = require("../utils/auth");
 
 // this will get all the posts
 
@@ -8,14 +9,13 @@ router.get("/", async (req, res) => {
   try {
     res.render("landingpage");
   } catch (err) {
-    console.log(err, "-----------------------");
     res.status(500).json(err);
   }
 });
 
 // this will get a single post
 
-router.get("/post/:id", async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const dbPostData = await Posts.findOne({
       where: { id: req.params.id },
@@ -37,7 +37,7 @@ router.get("/post/:id", async (req, res) => {
     });
     if (dbPostData) {
       const post = dbPostData.get({ plain: true });
-      console.log(post);
+
       res.render("single-post", {
         post,
         loggedIn: req.session.loggedIn,
@@ -48,7 +48,7 @@ router.get("/post/:id", async (req, res) => {
       return;
     }
   } catch (err) {
-    console.log(err, "!!!!!!HI!!!!!!");
+
     res.status(500).json(err);
   }
 });

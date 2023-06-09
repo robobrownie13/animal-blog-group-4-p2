@@ -1,6 +1,5 @@
 <section>
 <div class="feed-comments-container">
-    {{#each posts as |post|}}
     <div class="blog-card">
         <div class="top-blog-section">
             <div class="x-out">
@@ -34,7 +33,7 @@
                     <i class="bx bxs-user bx-sm"></i>
                 </div>
                 {{!-- COMMENT FORM --}}
-                <form class="comment-form">
+                <form class="comment-form" data-post-id="{{post.id}}">
                     <div class="comment-input">
                         <input type="text" placeholder="Add a comment..." id="comment-input">
                     </div>
@@ -70,6 +69,6 @@
             </div>
         </div>
     </div>
-    {{/each}}
 </div>
 </section>
+<script src="/js/commentForm.js"></script>

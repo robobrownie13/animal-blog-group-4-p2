@@ -4,12 +4,12 @@
 <div class="edit-post" id="edit-post-pop">
     <div class="edit-card">
         <div class="close-button">
-            <a><i class='bx bx-x-circle bx-sm'></i></a>
+            <a href="/profile/user"><i class='bx bx-x-circle bx-sm'></i></a>
         </div>
-        <form class="edit-form">
+        <form class="edit-form" data-post-id="{{post.id}}">
             <div class="edit-text">
-                <input type="text" id="edit-title" value="Hummingbirds are becoming extinct">
-                <textarea rows="7" id="edit-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, in nam. Iure tenetur consequatur veritatis repudiandae at ratione incidunt ullam? Cum accusantium odio fuga rerum aliquam veniam quia facilis exercitationem. Expedita consectetur esse enim reprehenderit.</textarea>
+                <input type="text" id="edit-title" value="{{post.title}}">
+                <textarea rows="7" id="edit-post">{{post.post_text}}</textarea>
             </div>
             <div class="edit-button">
                 <button type="submit">update post</button>
@@ -18,3 +18,4 @@
     </div>
 </div>
 </section>
+<script src="/js/postForms.js"></script>

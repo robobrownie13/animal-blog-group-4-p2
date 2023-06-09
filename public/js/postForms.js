@@ -1,16 +1,17 @@
 const newPostForm = document.querySelector(".new-form-post");
-console.log("hiiiiiiiiii");
+const editPostForm = document.querySelector(".edit-form")
+const deleteButtons= document.querySelectorAll(".delete-post")
+
 const newPostHandler = async (event) => {
   event.preventDefault();
-  console.log("hiiiiiiiiii");
 
   const title = document.querySelector("#new-title").value.trim();
-  const content = document.querySelector("#new-post").value.trim();
+  const post_text = document.querySelector("#new-post").value.trim();
 
-  if (title && content) {
-    const response = await fetch(`/api/posts`, {
+  if (title && post_text) {
+    const response = await fetch(`/api/post`, {
       method: "POST",
-      body: JSON.stringify({ title, content}),
+      body: JSON.stringify({ title, post_text}),
       headers: {
         "Content-Type": "application/json",
       },
@@ -24,47 +25,54 @@ const newPostHandler = async (event) => {
   }
 };
 
-// const editPostHandler = async (event) => {
-//   event.preventDefault();
+const editPostHandler = async (event) => {
+  event.preventDefault();
   
-//   const title = document.querySelector("").value.trim();
-//   const content = document.querySelector("").value.trim();
+  const title = document.querySelector("#edit-title").value.trim();
+  const post_text = document.querySelector("#edit-post").value.trim();
+const postId = event.target.dataset.postId
+  if (title && post_text) {
+    const response = await fetch(`/api/post/${postId}`, {
+      method: "PUT",
+      body: JSON.stringify({ title, post_text }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//   if (title && content) {
-//     const response = await fetch(`/api/posts`, {
-//       method: "PUT",
-//       body: JSON.stringify({ title, body }),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
+    if (response.ok) {
+      document.location.replace("/profile/user");
+    } else {
+      alert("Failed to create blogpost");
+    }
+  }
+};
 
-//     if (response.ok) {
-//       document.location.replace("/profile/");
-//     } else {
-//       alert("Failed to create blogpost");
-//     }
-//   }
-// };
+const delButtonHandler = async (event) => {
+  if (event.target.dataset.postId) {
+    const id = event.target.dataset.postId;
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute("data-id")) {
-//     const id = event.target.getAttribute("data-id");
+    
+    if (!confirm("Do you want to delete this post?")) return;
+    
 
-//     const response = await fetch(`/api/posts/${id}`, {
-//       method: "DELETE",
-//     });
+    const response = await fetch(`/api/post/${id}`, {
+      method: "DELETE",
+    });
 
-//     if (response.ok) {
-//       document.location.replace("/profile");
-//     } else {
-//       alert("Failed to delete blogpost");
-//     }
-//   }
-// };
+    if (response.ok) {
+      document.location.replace("/profile/user");
+    } else {
+      alert("Failed to delete blogpost");
+    }
+  }
+};
 
-newPostForm.querySelector("#new-post-button").addEventListener("submit", newPostHandler);
+newPostForm?.addEventListener("submit", newPostHandler);
+editPostForm?.addEventListener("submit", editPostHandler)
 
-// document.querySelectorAll("").forEach((deleteButton) => {
-//   deleteButton.addEventListener("click", delButtonHandler);
-// });
+if(deleteButtons?.length){
+deleteButtons.forEach((deleteButton) => {
+  deleteButton.addEventListener("click", delButtonHandler);
+})};
+
