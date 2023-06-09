@@ -1,65 +1,63 @@
 const router = require("express").Router();
 const { User, Posts, Comments } = require("../../models");
 
-// CREATE ALL USERS
-router.get('/', async (req, res) => {
+// retrieve all users
+router.get("/", async (req, res) => {
   try {
     const dbUserData = await User.findAll({
-      attributes: { exclude: ["password"]},
+      attributes: { exclude: ["password"] },
       include: [
         {
           model: Posts,
-          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+          attributes: ["id", "title", "post_text", "date_created", "user_id"],
         },
         {
           model: Comments,
-          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
-        }
-      ]
+          attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+        },
+      ],
     });
 
     res.status(200).json(dbUserData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
 
-// GET ONE USER
-router.get('/:id', async (req, res) => {
+// retrieve one user
+router.get("/:id", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
-      attributes: { exclude: ["password"]},
+      attributes: { exclude: ["password"] },
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
       include: [
         {
           model: Posts,
-          attributes: ['id', 'title', 'post_text', 'date_created', 'user_id']
+          attributes: ["id", "title", "post_text", "date_created", "user_id"],
         },
         {
           model: Comments,
-          attributes: ['id', 'comment', 'date_created', 'user_id', 'post_id']
-        }
-      ]
+          attributes: ["id", "comment", "date_created", "user_id", "post_id"],
+        },
+      ],
     });
 
     res.status(200).json(dbUserData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.post("/", async (req, res) => {
   try {
-    const userData = await User.create({ 
+    const userData = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
-console.log(req.session);
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;

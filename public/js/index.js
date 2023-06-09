@@ -13,67 +13,67 @@ if (window.location.href.includes("feed") || window.location.href.includes("prof
 }
 
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".landing-text1 h2", {
-    duration: 2,
-    opacity: 1,
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content1",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text1 h2", {
+//     duration: 2,
+//     opacity: 1,
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content1",
+//         start: "top 60%",
+//     }
+// });
 
-gsap.to(".landing-text2 h2", {
-    duration: 2,
-    opacity: 1,
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content2",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text2 h2", {
+//     duration: 2,
+//     opacity: 1,
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content2",
+//         start: "top 60%",
+//     }
+// });
 
-gsap.to(".landing-text3 h2", {
-    duration: 2,
-    opacity: 1,
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content3",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text3 h2", {
+//     duration: 2,
+//     opacity: 1,
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content3",
+//         start: "top 60%",
+//     }
+// });
 
-gsap.to(".landing-text1 p", {
-    duration: 2,
-    "transform": "translateY(0px)",
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content1",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text1 p", {
+//     duration: 2,
+//     "transform": "translateY(0px)",
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content1",
+//         start: "top 60%",
+//     }
+// });
 
-gsap.to(".landing-text2 p", {
-    duration: 2,
-    "transform": "translateY(0px)",
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content2",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text2 p", {
+//     duration: 2,
+//     "transform": "translateY(0px)",
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content2",
+//         start: "top 60%",
+//     }
+// });
 
-gsap.to(".landing-text3 p", {
-    duration: 2,
-    "transform": "translateY(0px)",
-    ease: Power4.easeOut,
-    scrollTrigger: {
-        trigger: ".landing-content3",
-        start: "top 60%",
-    }
-});
+// gsap.to(".landing-text3 p", {
+//     duration: 2,
+//     "transform": "translateY(0px)",
+//     ease: Power4.easeOut,
+//     scrollTrigger: {
+//         trigger: ".landing-content3",
+//         start: "top 60%",
+//     }
+// });
 
-var images = document.querySelectorAll('img');
-new simpleParallax(images);
+// var images = document.querySelectorAll('img');
+// new simpleParallax(images);

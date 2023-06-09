@@ -1,71 +1,76 @@
 <section>
-    <div class="profile-container">
-        <div class="profile-content">
-            <div class="post-container">
-                <h1>{{username}}</h1>
-                <!-- TOP POST BANNER -->
-                <div class="post-banner">
-                    <div class="banner-profile">
-                        <i class='bx bxs-user bx-md'></i>
-                    </div>
-                    <div class="banner-new">
-                        <a href="/profile/post/new"><div class="on-your-mind">
-                            <p>What's on your mind?...</p>
-                        </div></a>
-                    </div>     
-                </div>
-                <!-- BLOG POSTS DISPLAY -->
-                <div class="blog-posts">
-                    {{#each posts as |post|}}
-                    <div class="blog-card" data-location="/">
-                        <div class="top-blog-section">
-                            <div class="blog-user-profile">
-                                <div class="creation-profile">
-                                    <i class='bx bxs-user bx-sm'></i>
-                                </div>
-                                <div class="creation-info">
-                                    <p class="username-feed-post">{{post.user.username}}</p>
-                                    <p class="username-feed-day">{{format_date post.date_created}}</p>
-                                </div>
-                            </div>
-                            <div class="post-title">
-                                <h2>{{post.title}}</h2>
-                            </div>
-                        </div>
-                        <!-- <div class="blog-border"></div> -->
-                        <div class="middle-blog-section">
-                            <div class="post-body-container">
-                                <p class="post-body">{{post.post_text}}</p>
-                            </div>
-                        </div>
-                        <div class="blog-border"></div>
-                        <div class="bottom-blog-section">
-                            <div class="post-reactions">
-                                <div class="reaction-counts">
-                                    <p class="comments-count">2 comments</p>
-                                </div>
-                                <div class="reaction-buttons">
-                                    <i class='bx bxs-edit bx-md' id="edit-post"></i>
-                                    <i class='bx bxs-trash bx-md' id="delete-post" ></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-            <!-- LATEST BLOG CARD -->
-            <div class="profile-side-container">
-                <div class="side-card">
-                    <div class="side-top">
-                        <i class='bx bxs-user'></i>
-                    </div>
-                    <div class="side-username">
-                        <p>username</p>
-                        <p>Joined 03/15/2023</p>
-                    </div>
-                </div>
-            </div>
+  <div class="profile-container">
+    <div class="profile-content">
+      <div class="post-container">
+        <!-- TOP POST BANNER -->
+        <div class="post-banner">
+          <div class="banner-profile">
+            <i class="bx bxs-user bx-md"></i>
+          </div>
+          <div class="banner-new">
+            <a href="/profile/post/new"><div class="on-your-mind">
+                <p>What's on your mind?...</p>
+              </div></a>
+          </div>
         </div>
+        <!-- BLOG POSTS DISPLAY -->
+        <div class="blog-posts">
+          {{#each user.posts as |post|}}
+            <div class="blog-card" data-location="/">
+              <div class="top-blog-section">
+                <div class="blog-user-profile">
+                  <div class="creation-profile">
+                    <i class="bx bxs-user bx-sm"></i>
+                  </div>
+                  <div class="creation-info">
+                    <p class="username-feed-post">{{user.username}}</p>
+                    <p class="username-feed-day">{{format_date
+                        post.date_created
+                      }}</p>
+                  </div>
+                </div>
+                <div class="post-title">
+                  <h2>{{post.title}}</h2>
+                </div>
+              </div>
+              <!-- <div class="blog-border"></div> -->
+              <div class="middle-blog-section">
+                <div class="post-body-container">
+                  <p class="post-body">{{post.post_text}}</p>
+                </div>
+              </div>
+              <div class="blog-border"></div>
+              <div class="bottom-blog-section">
+                <div class="post-reactions">
+                  <div class="reaction-counts">
+                    <p class="comments-count">{{post.comments.length}}
+                      comments</p>
+                  </div>
+                  <div class="reaction-buttons">
+                    <a href="/profile/post/edit/{{id}}"><i
+                        class="bx bxs-edit bx-md"
+                        id="edit-post"
+                      ></i></a>
+                    <i class="bx bxs-trash bx-md delete-post" data-post-id="{{post.id}}"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <!-- LATEST BLOG CARD -->
+      <div class="profile-side-container">
+        <div class="side-card">
+          <div class="side-top">
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="side-username">
+            <p>{{user.username}}</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+<script src="/js/postForms.js"></script>

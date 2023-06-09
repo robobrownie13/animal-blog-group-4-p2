@@ -1,13 +1,11 @@
 const loginForm = document.querySelector(".login-form");
-console.log("HI!!!!!!!!!");
+
 const loginFormHandler = async (event) => {
-  console.log("HI!!!!!!!!!");
   event.preventDefault();
 
   // Collect values from the login form
   const email = document.getElementById("email-login").value.trim();
   const password = document.getElementById("password-login").value.trim();
-
   const warningText = document.querySelector("#login-warning");
 
   if (email && password) {
@@ -18,11 +16,9 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log("HI!!!!!!!!!");
       document.location.replace("/feed");
     } else {
-      console.log("Not working!");
-      warningText
+      warningText;
     }
   }
 };

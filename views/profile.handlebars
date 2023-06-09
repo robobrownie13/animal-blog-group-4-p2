@@ -4,7 +4,7 @@
             <div class="post-container">
                 <!-- BLOG POSTS DISPLAY -->
                 <div class="blog-posts">
-                    {{#each users as |user|}}
+                    {{#each user.posts as |post|}}
                     <div class="blog-card other-users">
                         <div class="top-blog-section">
                             <div class="blog-user-profile">
@@ -13,27 +13,27 @@
                                 </div>
                                 <div class="creation-info">
                                     <p class="username-feed-post">{{user.username}}</p>
-                                    <p class="username-feed-day">{{format_date user.posts.[0].date_created}}</p>
+                                    <p class="username-feed-day">{{format_date date_created}}</p>
                                 </div>
                             </div>
                             <div class="post-title">
-                                <h2>{{user.posts.[0].title}}</h2>
+                                <h2>{{title}}</h2>
                             </div>
                         </div>
                         <!-- <div class="blog-border"></div> -->
                         <div class="middle-blog-section">
                             <div class="post-body-container">
-                                <p class="post-body">{{user.posts.[0].post_text}}</p>
+                                <p class="post-body">{{post_text}}</p>
                             </div>
                         </div>
                         <div class="blog-border"></div>
                         <div class="bottom-blog-section">
                             <div class="post-reactions">
                                 <div class="reaction-counts">
-                                    <p class="comments-count">{{user.comments.length}} comments</p>
+                                    <p class="comments-count">{{comments.length}} comments</p>
                                 </div>
                                 <div class="reaction-buttons">
-                                    <a href="/feed/{{user.posts.[0].id}}"><i class="bx bx-message-square-dots bx-md"></i></a>
+                                    <a href="/feed/{{id}}"><i class="bx bx-message-square-dots bx-md"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
             </div>
             <!-- LATEST BLOG CARD -->
             <div class="profile-side-container">
-                {{#each users as |user|}}
+                {{!-- {{#each users as |user|}} --}}
                 <div class="side-card">
                     <div class="side-top">
                         <i class='bx bxs-user'></i>
@@ -53,7 +53,7 @@
                         {{!-- <p>Joined 03/15/2023</p> --}}
                     </div>
                 </div>
-                {{/each}}
+                {{!-- {{/each}} --}}
             </div>
         </div>
     </div>
