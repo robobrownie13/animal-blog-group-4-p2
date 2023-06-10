@@ -25,6 +25,14 @@
     overflow: hidden;
 }
 
+/* .landing-text1 h2, .landing-text2 h2, .landing-text3 h2  {
+    opacity: 0;
+}
+
+.landing-text1 p, .landing-text2 p, .landing-text3 p {
+    transform: translateY(200px);
+} */
+
 .landing-content2 {
     flex-direction: row-reverse;
 }
@@ -64,333 +72,72 @@
     background-color: var(--highlight-color);
 }
 
-/* 
-main {
-    flex-grow: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-
-
-main > article {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 2fr 1fr;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    transition: transform 400ms ease;
-}
-
-main > article[data-status="inactive"] {
-    transform: translateX(-100%);
-    transition: none;
-}
-
-main > article[data-status="active"] {
-    transform: translateX(0%);
-}
-
-main > article[data-status="before"] {
-    transform: translateX(-100%);
-}
-
-main > article[data-status="after"] {
-    transform: translateX(100%);
-}
-
-main > article[data-status="becoming-active-from-before"] {
-    transform: translateX(-100%);
-    transition: none;
-}
-
-main > article[data-status="becoming-active-from-after"] {
-    transform: translateX(100%);
-    transition: none;
-}
-
-main > article > .article-section {
-    height: 100%;
-    display: flex;
-}
-
-main > article > .article-description-section,
-main > article > .article-nav-section {
-    border-left: 1px solid var(--border-color);
-}
-
-main > article > .article-title-section,
-main > article > .article-nav-section {
-    border-top: 1px solid var(--border-color);
-}
-
-#work1 {
-    background-image: url("");
-
-}
-
-#test {
-    background-image: url("");
-    background-size: cover;
-}
-
-main > article:first-child > .article-image-section {
-    background-image: url("/images/grey-crowned-crane-also-known-as-african-crowned-crane.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-main > article:nth-child(2) > .article-image-section {
-    background-image: url("/images/closeup-shot-colorful-loriini-blurred-background.jpg");
-}
-
-main > article:nth-child(3) > .article-image-section {
-    background-image: url("/images/multi-colored-lizard-perching-leafs-generative-ai.jpg");
-    background-position-y:center;
-}
-
-
-main > article > .article-description-section {
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 4rem; 
-}
-
-main > article > .article-title-section {
-    align-items: center; 
-    justify-content: space-between;
-    padding: 2rem 4rem;
-}
-
-.article-image-section {
-    background-size:cover;
-}
-
-main > article > .article-description-section > li {
-    color: rgb(8, 8, 8);
-    font-size: 1.25em;
-    display: flex;
-    flex-direction: column;
-}
-
-main > article > .article-description-section {
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 4rem;
-}
-
-main > article > .article-description-section > p  > a:hover {
-    text-decoration: underline;
-}
-
-main > article > .article-title-section {
-    align-items: center; 
-    justify-content: space-between;
-    padding: 2rem 4rem;
-}
-
-main > article > .article-title-section * {
-    color: rgb(21, 21, 21);
-}
-
-main > article > .article-title-section > h2 {
-    flex-basis: 50%;
-    font-size: 3rem;
-    line-height: 3rem;
-    margin: 0px;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: -2px;
-}
-
-
-
-main > article > .article-nav-section > .article-nav-button {
-    background-color: transparent;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    color: rgba(52, 25, 25, 0.75);
-    font-size: 3rem;
-    cursor: pointer;
-}
-
-main > article > .article-nav-section > .article-nav-button:hover {
-    background-color: rgba(205, 211, 211, 0.127);
-}
-
-main > article > .article-nav-section > .article-nav-button:nth-child(2) {
-    border-left: 1px solid var(--border-color);
-}
-
-main > article > .article-description-section p {                 
-    display: flex;
-    font-style: normal;                                                         
-}
-
-@media(max-width: 1200px) {    
-    #nav-mobile-section {
-      flex-basis: calc(100% * 0.75);
-    }
-
-    #nav-logo-section {
-      flex-basis: calc(100% * 0.25);
-    }
-    
-    #nav-link-section {
-    flex-basis: calc(100% / 3);
-    gap: 3rem;
-    }
-
-main {
-    overflow-y: auto;
-    }
-    
-main > article {
-    grid-template-columns: none;
-    grid-template-rows: 1.5fr repeat(3, 0.75fr) 0.25fr;
-    height: max(900px, 100%);
-    }
-
-main > article > .article-title-section > h2 {
-    font-size: 3rem; 
-    line-height: 2.6rem;
-    }
-    
-main > article > .article-title-section > {
-    font-size: 3rem;
-}
-
-main > article > .article-description-section,
-main > article > .article-nav-section {
-    border-left: none;
-    }
-
-main > article > .article-image-section {
-    order: 1;
-    }
-
-
-main > article > .article-title-section {
-    border-bottom: 1px solid var(--border-color);
-    order: 2;
-}
-    
-main > article > .article-description-section {
-    justify-content: center;
-    order: 3;
-}
-    
-main > article > .article-nav-section {
-    border-bottom: 1px solid var(--border-color);
-    order: 4;
-    }
-}
-
-@media(max-width: 800px) {  
-    nav {
-        justify-content: space-between;  
-    }
-        
-    nav[data-toggled="true"] > #nav-mobile-section {  
-        transform: translateY(0%);
-    }
-
-    nav[data-toggled="true"] > #nav-toggle-button {
-        border-left: none;
-    }
-
-    nav[data-transitionable="true"] > #nav-mobile-section {
-        transition: transform 400ms ease;
-    }
-        
-    nav .nav-section {
-        border-left: none;
-        padding: 1.5rem 1rem;
-    }
-        
-    #nav-logo-section > a > i {
-        font-size: 1.5rem;
-        margin-left: 1rem;
-    }
-        
-    #nav-mobile-section {
-        background-color: var(--background-color);
+@media screen and (max-width: 767px) {    
+    .landing-content {
         flex-direction: column;
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        transform: translateY(-100%);
-    } 
-        
-    #nav-toggle-button {
-        display: flex;
-    }  
-        
-    #nav-link-section {
-        flex-basis: 60%;
+        height: auto;
+    }
+    
+    .landing-image {
+        flex-basis: 100%;
+    }
+    
+    .landing-text {
+        flex-basis: 100%;
+    }
+    
+    .landing-content2 {
         flex-direction: column;
-        gap: 4rem;
     }
-        
-    #nav-link-section > a {
-        font-size: 3rem; 
+    
+    .landing-text h2 {
+        font-size: 2.5em;
+        line-height: .5em;
+        letter-spacing: -2px;
     }
-        
-    #nav-social-section > a {
-        font-size: 2rem; 
-        }  
-        
-    #nav-contact-section {
-        padding-bottom: 4rem;
-        }
-        
-    main > article {
-        grid-template-rows: 1fr repeat(4, 0.5fr);
-        height: max(700px, 100%);
-        }
-        
-    main > article > .article-title-section {
-        padding: 2rem;
-        }
-        
-    main > article > .article-title-section > h2 {
-        flex-basis: 70%;
-        font-size: 1.75em; 
-        line-height: 1.5rem;
-        }
-        
-    main > article > .article-title-section > i {
-        font-size: 2rem; 
-        }
-        
-    main > article > .article-description-section {
-        padding: 2rem;
-        }
-        
-    main > article > .article-description-section > p {
-        font-size: 1rem;
-        }
+    .landing-text {
+        text-align: center;
     }
 
-    p > .image-portrait-section {
-        width: 17rem;
-        height: 25rem;
-        display: flex;
-        margin: 10px;
-        background-size: cover;
-        margin-left: 290px;
+    .landing-text p {
+        font-size: 14.5px;
+        margin: 0 auto;
+        width: 80%;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {    
+    .landing-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .landing-image {
+        flex-basis: 100%;
+    }
+    
+    .landing-text {
+        flex-basis: 100%;
+    }
+    
+    .landing-content2 {
+        flex-direction: column;
+    }
+    
+    .landing-text h2 {
+        font-size: 3em;
+        line-height: .6em;
+        letter-spacing: -2px;
+    }
+    .landing-text {
+        text-align: center;
     }
 
-    .link {
-        text-decoration: underline;
+    .landing-text p {
+        font-size: 16px;
+        margin: 0 auto;
+        width: 70%;
     }
-
-    .link:hover {
-        color: var(--highlight-color);
-    }
- */
+    
+}
