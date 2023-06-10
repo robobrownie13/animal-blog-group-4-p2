@@ -51,6 +51,14 @@
     justify-content: right;
 }
 
+.feed-banner a {
+    width: 85%;
+}
+
+.feed-banner .on-your-mind {
+    width: 100%;
+}
+
 .banner-new {
     width: 90%;
 }
